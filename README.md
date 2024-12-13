@@ -5,12 +5,12 @@ Overview
 
 The dataset used for this analysis includes financial news data and stock price data for the following companies:
 
-AAPL (Apple Inc.)
-AMZN (Amazon.com, Inc.)
-GOOG (Alphabet Inc.)
-MSFT (Microsoft Corporation)
-META (Meta Platforms, Inc.)
-TSLA (Tesla Inc.)
+    - AAPL (Apple Inc.)
+    - AMZN (Amazon.com, Inc.)
+    - GOOG (Alphabet Inc.)
+    - MSFT (Microsoft Corporation)
+    - META (Meta Platforms, Inc.)
+    - TSLA (Tesla Inc.)
 
 Methodology
 1. Data Cleaning and Preparation:
@@ -29,7 +29,7 @@ Analyze trends, patterns, and potential trading signals that can inform buy/sell
 
 Aggregate the sentiment scores by date, mapping each sentiment score to its corresponding date of publication.
 Calculate the correlation between aggregated sentiment scores and daily stock returns to evaluate whether positive or negative sentiment correlates with price movement.
- Libraries and Tools
+  Libraries and Tools
 - Python:
     The primary programming language used for the analysis, providing flexibility and power for data manipulation, analysis, and visualization.
 
