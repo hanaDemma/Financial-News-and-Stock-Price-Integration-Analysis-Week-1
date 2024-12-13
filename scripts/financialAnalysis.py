@@ -66,5 +66,38 @@ def calculateDescriptiveStatisticsOfHistoricalData(data_aapl,data_amzn,data_goog
     combined_stats = pd.concat([aapl_stats, goog_stats,amzn_stats,msft_stats,meta_stats,nvda_stats,tsla_stats], axis=1)
     return combined_stats
 
- 
+def analysisClosingPriceWithDate(data_aapl,data_amzn,data_goog,data_meta,data_msft,data_nvda):
+    # Create subplots for side-by-side display
+    fig, axs = plt.subplots(2, 3, figsize=(20, 10))  # Adjust figsize as needed
 
+    axs[0,0].plot(data_aapl['Date'], data_aapl['Close'], label='Close',color='green')
+    axs[0,0].set_title('AAPL')
+    axs[0,0].legend()
+
+    axs[0,1].plot(data_amzn['Date'], data_amzn['Close'], label='AMZN')
+    axs[0,1].set_title('AMZN')
+    axs[0,1].legend()
+
+
+    axs[0,2].plot(data_goog['Date'], data_goog['Close'], label='Close',color='yellow')
+    axs[0,2].set_title('GOOG')
+    axs[0,2].legend()
+
+
+    axs[1,0].plot(data_nvda['Date'], data_nvda['Close'], label='Close',color='red')
+    axs[1,0].set_title('NVDA')
+    axs[1,0].legend()
+    axs[1,0].set_xlabel('Date')
+
+
+    axs[1,1].plot(data_msft['Date'], data_msft['Close'], label='Close',color='purple')
+    axs[1,1].set_title('MSFT')
+    axs[1,1].legend()
+    axs[1,1].set_xlabel('Date')
+
+    axs[1,2].plot(data_meta['Date'], data_meta['Close'], label='Close',color='blue')
+    axs[1,2].set_title('META')
+    axs[1,2].legend()
+    axs[1,2].set_xlabel('Date')
+
+    plt.show()
