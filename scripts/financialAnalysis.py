@@ -111,3 +111,105 @@ def calculateTechnicalIndicator(stock_data):
     macd_signal, macd, _ = tl.MACD(stock_data['Close'])
     stock_data['MACD'] =macd
     stock_data['MACD_Signal']=macd_signal
+
+def technicalIndicatorsVsClosingPrice(data_aapl,data_amzn,data_goog,data_meta,data_msft,data_nvda,ticker):
+    fig, axs = plt.subplots(2, 3, figsize=(20, 10))  # Adjust figsize as needed
+
+    axs[0,0].plot(data_aapl['Date'], data_aapl['Close'], label='Closing price',color='green')
+    axs[0,0].plot(data_aapl['Date'], data_aapl[ticker], label=ticker,color='yellow')
+    axs[0,0].set_title('AAPL')
+    axs[0,0].legend()
+
+    axs[0,1].plot(data_amzn['Date'], data_amzn['Close'], label='Closing price')
+    axs[0,1].plot(data_amzn['Date'], data_amzn[ticker], label=ticker,color='red')
+    axs[0,1].set_title('AMZN')
+    axs[0,1].legend()
+
+
+    axs[0,2].plot(data_goog['Date'], data_goog['Close'], label='Closing price',color='yellow')
+    axs[0,2].plot(data_goog['Date'], data_goog[ticker], label=ticker,color='red')
+    axs[0,2].set_title('GOOG')
+    axs[0,2].legend()
+
+    axs[1,0].plot(data_nvda['Date'], data_nvda['Close'], label='Closing price',color='blue')
+    axs[1,0].plot(data_nvda['Date'], data_nvda[ticker], label=ticker,color='red')
+    axs[1,0].set_title('NVDA')
+    axs[1,0].legend()
+    axs[1,0].set_xlabel('Date')
+
+
+    axs[1,1].plot(data_msft['Date'], data_msft['Close'], label='Closing price',color='purple')
+    axs[1,1].plot(data_msft['Date'], data_msft[ticker], label=ticker,color='red')
+    axs[1,1].set_title('MSFT')
+    axs[1,1].legend()
+    axs[1,1].set_xlabel('Date')
+
+    axs[1,2].plot(data_meta['Date'], data_meta['Close'], label='Closing price',color='pink')
+    axs[1,2].plot(data_meta['Date'], data_meta[ticker], label=ticker,color='red')
+    axs[1,2].set_title('META')
+    axs[1,2].legend()
+    axs[1,2].set_xlabel('Date')
+
+    plt.show()
+
+
+
+def closingPriceRelativeStrengthIndex(data_aapl,data_amzn,data_goog,data_meta,data_msft,data_nvda):
+    fig, axs = plt.subplots(6,2, gridspec_kw={"height_ratios": [1, 1, 1, 1,1,1]}, figsize=(16,22))
+
+    # For AAPL
+    axs[0][0].plot(data_aapl['Date'], data_aapl['Close'],label="Close")
+    axs[0][0].set_title("AAPL Stock Price")
+    axs[0][0].legend()
+    axs[1][0].axhline(y=70, color='r',linestyle="--")
+    axs[1][0].axhline(y=30, color='g',linestyle="--")
+    axs[1][0].plot(data_aapl['Date'],data_aapl['RSI'], color='blue', label="RSI")
+    axs[1][0].legend()
+
+    # for GOOG
+    axs[0][1].plot(data_goog['Date'], data_goog['Close'],label="Close")
+    axs[0][1].set_title("GOOG Stock Price")
+    axs[0][1].legend()
+    axs[1][1].axhline(y=70, color='r',linestyle="--")
+    axs[1][1].axhline(y=30, color='g',linestyle="--")
+    axs[1][1].plot(data_goog['Date'],data_goog['RSI'], color='blue', label="RSI")
+    axs[1][1].legend()
+
+    # for AMZN
+    axs[2][0].plot(data_amzn['Date'], data_amzn['Close'],label="Close")
+    axs[2][0].set_title("AMZN Stock Price")
+    axs[2][0].legend()
+    axs[3][0].axhline(y=70, color='r',linestyle="--")
+    axs[3][0].axhline(y=30, color='g',linestyle="--")
+    axs[3][0].plot(data_amzn['Date'],data_amzn['RSI'], color='blue', label="RSI")
+    axs[3][0].legend()
+
+    # for NVDA
+    axs[2][1].plot(data_nvda['Date'], data_nvda['Close'],label="Close")
+    axs[2][1].set_title("NVDA Stock Price")
+    axs[2][1].legend()
+    axs[3][1].axhline(y=70, color='r',linestyle="--")
+    axs[3][1].axhline(y=30, color='g',linestyle="--")
+    axs[3][1].plot(data_nvda['Date'],data_nvda['RSI'], color='blue', label="RSI")
+    axs[3][1].legend()
+
+
+    # for MSFT
+    axs[4][0].plot(data_msft['Date'], data_msft['Close'],label="Close")
+    axs[4][0].set_title("MSFT Stock Price")
+    axs[4][0].legend()
+    axs[5][0].axhline(y=70, color='r',linestyle="--")
+    axs[5][0].axhline(y=30, color='g',linestyle="--")
+    axs[5][0].plot(data_msft['Date'],data_msft['RSI'], color='blue', label="RSI")
+    axs[5][0].legend()
+
+    # for META
+    axs[4][1].plot(data_meta['Date'], data_meta['Close'],label="Close")
+    axs[4][1].set_title("META Stock Price")
+    axs[4][1].legend()
+    axs[5][1].axhline(y=70, color='r',linestyle="--")
+    axs[5][1].axhline(y=30, color='g',linestyle="--")
+    axs[5][1].plot(data_meta['Date'],data_meta['RSI'], color='blue', label="RSI")
+    axs[5][1].legend()
+    fig.show()
+
