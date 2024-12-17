@@ -1,7 +1,5 @@
 # Overview
-This project integrates financial market data with news sentiment analysis to explore the relationship between market behavior and public sentiment. It leverages Python for data manipulation, analysis, and visualization, combining historical stock data with natural language processing for insights into price movements, sentiment trends, and portfolio performance.
-
-This project integrates financial market data with news sentiment analysis to explore the relationship between stock price movements and public sentiment. Using Python for data manipulation, analysis, and visualization, the project combines historical stock data with natural language processing (NLP) to generate insights into:
+This project integrates financial market data with news sentiment analysis to explore the relationship between market behavior and public sentiment. It leverages Python for data manipulation, analysis, and visualization, combining historical stock data with natural language processing to generate insights into:
 
 - Price movements and technical stock indicators
 - Sentiment trends from news articles
